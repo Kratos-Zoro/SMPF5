@@ -10,7 +10,7 @@ export default function TeacherDashboard({ user }) {
   return (
     <div className="card card-body shadow-sm">
       <h3 className="text-primary mb-4">
-        Welcome, {user?.name || "Teacher"}
+        Welcome {user?.name || "Teacher"}
       </h3>
 
       <ul className="nav nav-tabs mb-3">

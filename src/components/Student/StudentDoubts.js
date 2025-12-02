@@ -10,44 +10,49 @@ export default function StudentDoubts() {
   }, []);
 
   async function loadDoubts() {
-    try {
-      const res = await api.get("/doubts");
+  try {
+    const res = await api.get("/doubts");
+    console.log("Full API response:", res);
 
-      if (res.status === 200 && Array.isArray(res.body)) {
-        const userId = localStorage.getItem("userId"); // ✅ Get current logged-in student ID
-        if (!userId) {
-          setMsg("⚠️ Unable to find your user ID. Please login again.");
-          return;
-        }
+    
+    const data = res?.body;
 
-        // ✅ Filter doubts only for this student
-        const myDoubts = res.body.filter(
-          (d) => String(d.userId) === String(userId)
-        );
-
-        setDoubts(myDoubts);
-        if (myDoubts.length === 0) setMsg("No doubts raised yet.");
-        else setMsg("");
-      } else {
-        setMsg("❌ Failed to load doubts.");
+    if (Array.isArray(data)) {
+      const userId = localStorage.getItem("userId");
+      if (!userId) {
+        setMsg("Unable to find your user ID. Please log in again.");
+        return;
       }
-    } catch (err) {
-      console.error("Error loading doubts:", err);
-      setMsg("⚠️ Error loading doubts.");
+
+      const myDoubts = data.filter(
+        (d) => String(d.userId) === String(userId)
+      );
+
+      setDoubts(myDoubts);
+      if (myDoubts.length === 0)
+        setMsg("You haven’t raised any doubts yet.");
+      else setMsg("");
+    } else {
+      console.error("Unexpected response structure:", res);
+      setMsg("Failed to load doubts (unexpected format).");
     }
+  } catch (err) {
+    console.error("Error loading doubts:", err);
+    setMsg("Something went wrong while fetching your doubts.");
   }
+}
 
   return (
-    <div className="container mt-4">
-      <h4 className="mb-3 text-primary">Your Doubts & Responses</h4>
+    <div className="card card-body shadow-sm mt-4">
+      <h4 className="text-primary mb-3 text-center">Your Doubts & Responses</h4>
 
       {msg && <div className="alert alert-info text-center">{msg}</div>}
 
       {doubts.length > 0 && (
         <ul className="list-group">
           {doubts.map((d) => (
-            <li key={d.id} className="list-group-item">
-              <p>
+            <li key={d.id} className="list-group-item mb-2 shadow-sm">
+              <p className="mb-1">
                 <strong>Subject:</strong> {d.subject} <br />
                 <strong>Question:</strong> {d.question} <br />
                 <strong>Status:</strong>{" "}
@@ -58,13 +63,12 @@ export default function StudentDoubts() {
                 )}
               </p>
 
-              {/* ✅ Show teacher’s reply if available */}
               {d.response ? (
-                <div className="alert alert-success p-2 mt-2">
+                <div className="alert alert-success p-2 mt-2 mb-0">
                   <strong>Teacher Response:</strong> {d.response}
                 </div>
               ) : (
-                <div className="alert alert-secondary p-2 mt-2">
+                <div className="alert alert-secondary p-2 mt-2 mb-0">
                   Waiting for teacher’s response...
                 </div>
               )}
@@ -75,3 +79,4 @@ export default function StudentDoubts() {
     </div>
   );
 }
+

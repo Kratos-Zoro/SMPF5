@@ -4,33 +4,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Common/Header";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-
-// Teacher
 import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import QuizCreator from "./components/Teacher/QuizCreator";
 import QuestionCreator from "./components/Teacher/QuestionCreator";
 import AttendanceMark from "./components/Teacher/AttendanceMark";
 import TeacherDoubts from "./components/Teacher/TeacherDoubts";
-
-// Student
 import StudentDashboard from "./components/Student/StudentDashboard";
 import QuizList from "./components/Student/QuizList";
 import QuizTaker from "./components/Student/QuizTaker";
 import RaiseDoubt from "./components/Student/RaiseDoubt";
 import ViewResults from "./components/Student/ViewResults";
-
-// JWT
-import { jwtDecode } from "jwt-decode";
 import StudentDoubts from "./components/Student/StudentDoubts";
+import { jwtDecode } from "jwt-decode";
+
 
 function App() {
   const navigate = useNavigate();
 
-  // ✅ React state for token and role
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [role, setRole] = useState(token ? jwtDecode(token).role : null);
 
-  // ✅ Sync with localStorage changes
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
@@ -54,7 +47,6 @@ function App() {
     const userRole = profile?.role || jwtDecode(token).role;
     setRole(userRole);
 
-    // ✅ Navigate immediately after login
     if (userRole === "TEACHER") navigate("/teacher/dashboard");
     else if (userRole === "STUDENT") navigate("/student/dashboard");
     else navigate("/");

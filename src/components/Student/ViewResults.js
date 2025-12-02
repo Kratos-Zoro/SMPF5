@@ -10,7 +10,7 @@ export default function ViewResults() {
     async function fetchResults() {
       try {
         const studentId = localStorage.getItem("userId");
-        const quizId = localStorage.getItem("lastQuizId"); // optional: save quizId in QuizTaker when submitting
+        const quizId = localStorage.getItem("lastQuizId");
         if (!studentId || !quizId) {
           setMsg("Missing studentId or quizId.");
           setLoading(false);

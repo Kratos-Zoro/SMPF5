@@ -4,8 +4,8 @@ import api from "../../api";
 export default function AttendanceMark() {
   const [userId, setUserId] = useState("");
   const [status, setStatus] = useState("PRESENT");
-  const [date, setDate] = useState(""); // manual input
-  const [time, setTime] = useState(""); // manual input
+  const [date, setDate] = useState(""); 
+  const [time, setTime] = useState(""); 
   const [msg, setMsg] = useState("");
 
   async function handleSubmit(e) {
@@ -25,7 +25,7 @@ export default function AttendanceMark() {
       try{
           const res = await api.post("/attendance",payload); 
           if (res.status === 200 || res.status === 201){
-            setMsg(`✅ Attendance marked for ${date} at ${time}`);
+            setMsg(`Attendance marked for ${date} at ${time}`);
             setUserId("");
             setStatus("PRESENT");
             setDate("");

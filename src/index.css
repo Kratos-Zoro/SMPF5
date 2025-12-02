@@ -7,7 +7,7 @@ body {
   padding: 0;
   min-height: 100vh;
 }
-
+ 
 /* ======== Container Styling ======== */
 .container {
   max-width: 1200px;
@@ -19,7 +19,7 @@ body {
   padding: 30px;
   animation: fadeIn 0.7s ease-in-out;
 }
-
+ 
 /* ======== Headers ======== */
 h1,
 h2,
@@ -28,7 +28,7 @@ h3 {
   color: #004085;
   text-align: center;
 }
-
+ 
 h1::after,
 h2::after {
   content: "";
@@ -39,7 +39,7 @@ h2::after {
   background-color: #0d6efd;
   border-radius: 2px;
 }
-
+ 
 /* ======== Buttons ======== */
 .btn-primary {
   background-color: #0d6efd;
@@ -48,25 +48,26 @@ h2::after {
   transition: all 0.3s ease;
   box-shadow: 0 3px 10px rgba(13, 110, 253, 0.3);
 }
-
+ 
 .btn-primary:hover {
   background-color: #0b5ed7;
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(13, 110, 253, 0.4);
 }
-
+ 
+ 
 .btn-success {
   background-color: #198754;
   border: none;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
-
+ 
 .btn-success:hover {
   background-color: #157347;
   transform: translateY(-2px);
 }
-
+ 
 /* ======== Navbar ======== */
 .navbar {
   background-color: #ffffffee !important;
@@ -74,24 +75,24 @@ h2::after {
   border-bottom: 2px solid #dee2e6;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
+ 
 .navbar-brand {
   font-weight: 700;
   font-size: 1.4rem;
   color: #0d6efd !important;
 }
-
+ 
 .nav-link {
   color: #0d6efd !important;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
-
+ 
 .nav-link:hover {
   color: #0b5ed7 !important;
   transform: scale(1.05);
 }
-
+ 
 /* ======== Cards ======== */
 .card {
   border-radius: 12px;
@@ -99,12 +100,12 @@ h2::after {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
+ 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
-
+ 
 /* ======== Forms ======== */
 form {
   background: #ffffff;
@@ -112,7 +113,7 @@ form {
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
-
+ 
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -121,29 +122,29 @@ select {
   border: 1px solid #ced4da;
   transition: all 0.2s ease;
 }
-
+ 
 input:focus,
 select:focus {
   border-color: #0d6efd;
   box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
 }
-
+ 
 /* ======== Table Styling ======== */
 .table {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-
+ 
 .table thead {
   background-color: #0d6efd;
   color: white;
 }
-
+ 
 .table tbody tr:hover {
   background-color: #f1f7ff;
 }
-
+ 
 /* ======== Animations ======== */
 @keyframes fadeIn {
   0% {
@@ -155,7 +156,7 @@ select:focus {
     transform: translateY(0);
   }
 }
-
+ 
 /* ======== Footer ======== */
 footer {
   text-align: center;

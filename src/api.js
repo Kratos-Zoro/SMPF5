@@ -1,4 +1,4 @@
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:8080/api";
+const API_BASE = "http://localhost:8080/api";
 
 async function request(path, { method = "GET", body, headers = {} } = {}) {
   const token = localStorage.getItem("token");
@@ -20,7 +20,7 @@ async function request(path, { method = "GET", body, headers = {} } = {}) {
   }
 }
 
-// ✅ Export correctly with space after `default`
+
 export default {
   get: (path) => request(path, { method: "GET" }),
   post: (path, body) => request(path, { method: "POST", body }),

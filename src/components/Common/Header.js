@@ -6,7 +6,7 @@ export default function Header({ onLogout, role }) {
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm rounded-3 mb-4">
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold text-primary" to="/">
-          SMPF Classroom
+          SMP Classroom
         </Link>
 
         {/* Navbar*/}

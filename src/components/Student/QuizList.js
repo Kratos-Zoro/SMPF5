@@ -6,7 +6,7 @@ export default function QuizList({ onTakeQuiz }) {
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState("");
   const role = localStorage.getItem("role");
-  const userId = localStorage.getItem("userId"); // Make sure userId is stored at login
+  const userId = localStorage.getItem("userId"); 
 
   useEffect(() => {
     async function fetchQuizzes() {
